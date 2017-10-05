@@ -21,3 +21,9 @@ if errorlevel 1 exit 1
 :: Install.
 cmake --build . --config Release --target install
 if errorlevel 1 exit 1
+
+REM Headers. Must be a better way...
+rem echo .cpp > excludelist.txt
+rem mkdir %LIBRARY_INC%\xercesc
+rem xcopy /s /exclude:excludelist.txt src\xercesc %LIBRARY_INC%\xercesc
+rem if errorlevel 1 exit 1

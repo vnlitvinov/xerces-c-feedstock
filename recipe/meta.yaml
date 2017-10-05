@@ -10,24 +10,18 @@ source:
 
 build:
   number: 0
-  skip: True  # [win and py36]
-  features:
-    - vc9  # [win and py27]
-    - vc14  # [win and (py35 or py36)]
+  run_exports:
+    # changes SO names at minor rev
+    - {{ pin_subpackage('xerces-c', max_pin='x.x') }}
 
 requirements:
   build:
-    - python  # [win]
+    - perl  # [not win]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - cmake  # [win]
-    - toolchain
-    - icu 58.*  # [not win]
-    - perl 5.22.2.1  # [not win]
-    - vc 9  # [win and py27]
-    - vc 14  # [win and (py35 or py36)]
-  run:
-    - icu 58.*  # [not win]
-    - vc 9  # [win and py27]
-    - vc 14  # [win and (py35 or py36)]
+  host:
+    - icu   # [not win]
 
 test:
   commands:

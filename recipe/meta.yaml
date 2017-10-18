@@ -1,16 +1,15 @@
-{% set version = "3.1.4" %}
+{% set version = "3.2.0" %}
 
 package:
   name: xerces-c
   version: {{ version }}
 
 source:
-  fn: xerces-c-{{ version }}.tar.gz
-  url: http://apache.uberglobalmirror.com//xerces/c/3/sources/xerces-c-{{ version }}.tar.gz
-  md5: 21bb097b711a513275379b59757cba4c
+  url: http://apache.uberglobalmirror.com//xerces/c/3/sources/xerces-c-{{ version }}.tar.xz
+  sha1: d5cc1389a519c6d1227aec666903563bb4ac7d52
 
 build:
-  number: 4
+  number: 0
   features:
     - vc{{ vc }}  # [win]
   run_exports:
@@ -20,6 +19,8 @@ build:
 requirements:
   build:
     - perl  # [not win]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
   host:
     - icu   # [not win]
 

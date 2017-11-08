@@ -9,9 +9,7 @@ source:
   sha1: d5cc1389a519c6d1227aec666903563bb4ac7d52
 
 build:
-  number: 0
-  features:
-    - vc{{ vc }}  # [win]
+  number: 2
   run_exports:
     # changes SO names at minor rev
     - {{ pin_subpackage('xerces-c', max_pin='x.x') }}
@@ -21,6 +19,7 @@ requirements:
     - perl  # [not win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - cmake  # [win]
   host:
     - icu   # [not win]
 

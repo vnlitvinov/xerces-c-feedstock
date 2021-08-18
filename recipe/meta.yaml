@@ -21,6 +21,7 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake  # [win]
     - make   # [not win]
+    - libtool # [not win]
     - clang  # [osx]
   host:
     - icu   # [not win]
